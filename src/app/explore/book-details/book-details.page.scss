@@ -1,0 +1,105 @@
+.header-md::after {
+  background-image: none;
+}
+
+.book-header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.back-button {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.button-margin {
+  margin: 8px;
+}
+
+.button-details {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 5px;
+  margin: 10px;
+  background-color: #96ceb4;
+  color: white;
+  font-size: 18px;
+}
+
+.margin {
+  margin: 10px;
+}
+.m-l {
+  margin-left: 10px;
+}
+
+.m-t {
+  margin-top: 40%;
+}
+
+.f-s {
+  font-size: 10px;
+}
+
+.user-image {
+  margin-top: 10px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background: #96ceb4;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 30px;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.autor {
+  font-size: 11px;
+  margin-top: -10px !important;
+}
+
+.card {
+  max-width: 40%;
+  margin-top: 10%;
+}
+
+.class-book {
+  border: 2px;
+  border-radius: 6px;
+  border-style: solid;
+  max-width: 30%;
+  padding-left: 5px;
+  border-color: #96ceb4;
+  margin-top: 20%;
+}
+
+.class-book-p {
+  font-size: 12px;
+  margin: 3px;
+  color: #96ceb4;
+}
+
+.infos {
+  margin-top: 14px;
+  font-size: 11px;
+}
+
+.coment-name {
+  font-size: 16px;
+}
+
+.comment-margin {
+  margin-left: 25%;
+}
