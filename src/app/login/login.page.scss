@@ -4,8 +4,18 @@
 
 .login-container {
     position: absolute;
-    bottom: 1em;
+    bottom: 6em;
     width: 100%;
+    padding: 0em 2em;
+}
+
+ion-input {
+    margin: 1em 0em;
+    border: 1px solid lightgray;
+    color: #b3b3b3;
+    border: 1px solid lightgray;
+    border-radius: .5em;
+    padding: 0em 1em !important;
 }
 
 button {
@@ -14,4 +24,5 @@ button {
     background-color: #88D8B0;
     color: white;
     width: 100%;
+    font-size: 1em;
 }
