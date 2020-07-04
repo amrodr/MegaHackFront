@@ -22,7 +22,15 @@ export class ExplorePage implements OnInit{
 
 
   ngOnInit() {
-    this.sections = this.bookService.getBooks();
+    this.getBooks();
+  }
+
+  getBooks() {
+    this.bookService.getBooks().subscribe(
+      (res: any) => {
+        this.sections = res;
+      }
+    )
   }
 
   bookDetail() {

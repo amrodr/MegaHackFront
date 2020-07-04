@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
 
-
+  private baseURL = environment.apiUrl;
   private data = [
     {
       category: 'Ação',
@@ -38,10 +40,15 @@ export class BookService {
     { id: 5, name: 'Harry Potter', author: 'JK. Rowlling', rating: 2, percentage: 1 }
   ]
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  getBooks() {
-    return this.data;
+  getBooks(bookName?:string) {
+    if(bookName)
+      return this.http.get(`${this.baseURL}/books/${bookName}`);
+    else
+    return this.http.get(`${this.baseURL}/books`);
   }
 
   getMyBooks() {
