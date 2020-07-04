@@ -13,7 +13,7 @@ export class HomePage implements OnInit{
   sliderConfiguration = {
     spaceBetween: 6,
     centeredSlides: true,
-    slidesPerView: 1.6
+    slidesPerView: 1.4
   }
 
   constructor(

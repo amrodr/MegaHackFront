@@ -1,3 +1,42 @@
-.slider_row {
-    margin-top: 6em;
+
+.io-container {
+    padding: 0em 2em;
+}
+
+ion-content {
+    .slider_row {
+        margin-top: 6em;
+    }
+
+    h1 {
+        font-size: initial;
+        font-weight: bold;
+    }
+
+    ion-progress-bar {
+        margin: 1em 0em;
+        height: 1em;
+        border: 1px solid lightgray;
+        border-radius: .5em;
+    }
+
+    p {
+        margin: 0;
+        font-size: small;
+    }
+    
+    .slider_card {
+        img {
+            width: 80%;
+            border-radius: 1em;
+        }
+    
+        button {
+            border-radius: 1em;
+            padding: 1em 4em;
+            background-color: #88D8B0;
+            color: white;
+        }
+    
+    }
 }
