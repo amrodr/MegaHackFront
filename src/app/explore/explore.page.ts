@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BookService } from '../book.service';
+import { BookService } from 'src/services/book.service';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { SearchResultPage } from './search-result/search-result.page';
