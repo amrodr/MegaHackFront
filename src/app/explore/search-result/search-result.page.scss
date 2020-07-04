@@ -1,0 +1,21 @@
+ion-header { 
+    width: 100%;
+    background: #88D8B0;
+    ion-icon {
+        margin: 0 auto;
+        text-align: center;
+        font-size: xx-large;
+        width: 100%;
+        color: white;
+    }
+}
+
+.m-1em {
+    margin: 1em;
+}
+
+ion-content {    
+    ion-card {
+        background-color: #88D8B0;
+    }
+}

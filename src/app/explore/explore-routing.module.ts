@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: ExplorePage,
+  },
+  {
+    path: 'search-result',
+    loadChildren: () => import('./search-result/search-result.module').then( m => m.SearchResultPageModule)
   }
 ];
 

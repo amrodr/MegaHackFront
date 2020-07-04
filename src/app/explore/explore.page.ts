@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { SearchResultPage } from './search-result/search-result.page';
 
 @Component({
   selector: 'app-explore',
@@ -17,7 +19,8 @@ export class ExplorePage implements OnInit{
 
   constructor(
     private bookService: BookService,
-    private router: Router
+    private router: Router,
+    public modalController: ModalController
   ) {}
 
 
@@ -29,6 +32,16 @@ export class ExplorePage implements OnInit{
     this.router.navigate['book'];
   }
 
-  
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: SearchResultPage,
+      cssClass: 'my-custom-class',
+      swipeToClose: true,
+      componentProps: {
+        'categories': this.sections,
+      }
+    });
+    return await modal.present();
+  }
 
 }

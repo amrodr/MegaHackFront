@@ -10,21 +10,21 @@ export class BookService {
     {
       category: 'Ação',
       books: [
-        { id: 1, name: 'Sla1', rating: 4 },
-        { id: 2, name: 'Sla1', rating: 4 },
-        { id: 3, name: 'Sla1', rating: 4 },
-        { id: 4, name: 'Sla1', rating: 4 },
-        { id: 5, name: 'Sla2', rating: 2 }
+        { id: 1, name: 'Sla1', rating: 4, author: 'JK. Rowlling' },
+        { id: 2, name: 'Sla1', rating: 4, author: 'JK. Rowlling' },
+        { id: 3, name: 'Sla1', rating: 4, author: 'JK. Rowlling' },
+        { id: 4, name: 'Sla1', rating: 4, author: 'JK. Rowlling' },
+        { id: 5, name: 'Sla2', rating: 2, author: 'JK. Rowlling' }
       ]
     },
     {
       category: 'Terror',
       books: [
-        { id: 1, name: 'Sla1', rating: 4 },
-        { id: 2, name: 'Sla2', rating: 4 },
-        { id: 3, name: 'Sla3', rating: 4 },
-        { id: 4, name: 'Sla4', rating: 4 },
-        { id: 5, name: 'Sla5', rating: 2 }
+        { id: 1, name: 'Sla1', rating: 4, author: 'JK. Rowlling' },
+        { id: 2, name: 'Sla2', rating: 4, author: 'JK. Rowlling' },
+        { id: 3, name: 'Sla3', rating: 4, author: 'JK. Rowlling' },
+        { id: 4, name: 'Sla4', rating: 4, author: 'JK. Rowlling' },
+        { id: 5, name: 'Sla5', rating: 2, author: 'JK. Rowlling' }
       ]
     }
   ]

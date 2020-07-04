@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-icon name="chevron-up-outline"></ion-icon>
+  <ion-searchbar showCancelButton="never" placeholder="Procure por um livro que goste">
+  </ion-searchbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let category of categories">
+     <p class="m-1em">
+      {{ category.category }}
+     </p> 
+      <ion-card *ngFor="let book of category.books">
+        <ion-grid>
+          <ion-row no-padding>
+            <ion-col size="4">
+              <img src="" alt="Capa do Livro">
+            </ion-col>
+            <ion-col size="8" padding>
+              <b no-margin>{{ book?.name }}</b>
+              <p no-margin>{{ book?.author }}</p>
+              <img src="" alt="stars" margin>
+              <p>{{ book?.pages || 0 }} paginas</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+  </div>
+
+
+</ion-content>
