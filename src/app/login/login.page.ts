@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
-  constructor() { }
+  credentials = {
+    username: '',
+    password: ''
+  }
+  constructor(
+    private router: Router,
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
+  }
+
+  checkLogin() {
+    this.userService.signIn(this.credentials).subscribe(
+      (res: any) => {
+        if (res && res._id)this.router.navigate(['/app/home'])
+      },
+      err => (console.log('Credentials invalid'))
+    )  
   }
 
 }

@@ -2,9 +2,9 @@
   <div class="login-container">
     <ion-row>
       <ion-col size="12">
-        <ion-input type="text"></ion-input>
-        <ion-input type="password"></ion-input>
-        <button [routerLink]="['/app/home']">Entrar</button>
+        <ion-input placeholder="Login" name="username" type="text" [(ngModel)]="credentials.username"></ion-input>
+        <ion-input placeholder="Senha" name="password" type="password" [(ngModel)]="credentials.password"></ion-input>
+        <button (click)="checkLogin()">Entrar</button>
       </ion-col>
     </ion-row>
   </div>
