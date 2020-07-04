@@ -29,10 +29,23 @@ export class BookService {
     }
   ]
 
+  private myBooks = [
+
+    { id: 1, name: 'Harry Potter', author: 'JK. Rowlling', rating: 5, percentage: 10 },
+    { id: 2, name: 'Harry Potter', author: 'JK. Rowlling', rating: 4, percentage: 14 },
+    { id: 3, name: 'Harry Potter', author: 'JK. Rowlling', rating: 4, percentage: 55 },
+    { id: 4, name: 'Harry Potter', author: 'JK. Rowlling', rating: 2, percentage: 89 },
+    { id: 5, name: 'Harry Potter', author: 'JK. Rowlling', rating: 2, percentage: 100 }
+  ]
+
   constructor() { }
 
   getBooks() {
     return this.data;
+  }
+
+  getMyBooks() {
+    return this.myBooks;
   }
 
 

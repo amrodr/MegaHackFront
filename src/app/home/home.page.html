@@ -1,17 +1,20 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
+
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true"> 
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <ion-slides class="slider_row" [options]="sliderConfiguration">
+      <ion-slide *ngFor="let book of books">
+          <ion-card class="slider_card">
+            <img src="assets/covers/1.jpg"/>
+            <h1>{{ book?.name }}</h1>
+
+            <ion-progress-bar value="{{ book?.progress }}"></ion-progress-bar>
+
+            <ion-button expand="full" color="secondary">A full-width button</ion-button>
+          </ion-card>    
+      </ion-slide>
+    </ion-slides>
+
 </ion-content>
