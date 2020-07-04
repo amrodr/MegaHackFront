@@ -10,11 +10,17 @@ import { Router } from '@angular/router';
 export class HomePage implements OnInit{
   books = [];
 
-  sliderConfiguration = {
+  secondarySliderConfiguration = {
+    spaceBetween: 10,
+    slidesPerView: 2.4
+  }
+
+  mainSliderConfiguration = {
     spaceBetween: 6,
     centeredSlides: true,
     slidesPerView: 1.4
   }
+
 
   constructor(
     private bookService: BookService,

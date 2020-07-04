@@ -2,20 +2,48 @@
 
 </ion-header>
 
-<ion-content [fullscreen]="true"> 
+<ion-content [fullscreen]="true">
 
-    <ion-slides class="slider_row" [options]="sliderConfiguration">
-      <ion-slide *ngFor="let book of books">
-          <div class="slider_card">
-            <img src="assets/covers/1.jpg"/>
-            <h1>{{ book?.name }}</h1>
-            <p>{{ book?.author }}</p>
-            <div class="io-container">
-              <ion-progress-bar color="success" value="{{ book?.percentage }}"></ion-progress-bar>
-            </div>
-            <button>Atualizar página</button>
-          </div>    
-      </ion-slide>
-    </ion-slides>
+  <ion-slides class="slider_row" [options]="mainSliderConfiguration">
+    <ion-slide *ngFor="let book of books">
+      <div class="slider_card">
+        <img src="assets/covers/1.jpg" />
+        <h1>{{ book?.name }}</h1>
+        <p>{{ book?.author }}</p>
+        <div class="io-container">
+          <ion-progress-bar color="success" value="{{ book?.percentage }}"></ion-progress-bar>
+        </div>
+        <button>Atualizar página</button>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-row class="divider">
+    <ion-col text-left align-self-center>
+      Fila de livros
+    </ion-col>
+  </ion-row>
+
+  <ion-slides [options]="secondarySliderConfiguration">
+
+    <ion-slide *ngFor="let book of books">
+      <ion-card>
+        <img src="assets/covers/1.jpg" />
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-card class="green-card">
+    <ion-row>
+      <ion-col size="6">
+        <img src="" alt="icon">
+      </ion-col>
+      <ion-col size="6" class="read_books">
+          <p text-center>Você tem</p>
+          <h2 text-center>12</h2>
+          <p text-center>livros lidos</p>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 
 </ion-content>

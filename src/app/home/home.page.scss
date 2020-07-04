@@ -4,13 +4,33 @@
 }
 
 ion-content {
+
     .slider_row {
-        margin-top: 6em;
+        margin-top: 2em;
+    }
+
+    ion-row.divider {
+        margin: 2em 0em 0em 1em;    
+    }
+
+    ion-col.read_books {
+        font-weight: bold;
+        text-align: center;
+
+        h2 {
+            margin: .3em 0em;
+            font-weight: bolder;
+        }
     }
 
     h1 {
         font-size: initial;
         font-weight: bold;
+    }
+
+    ion-card.green-card {
+        background-color: #88D8B0;
+        color: black;
     }
 
     ion-progress-bar {
@@ -37,6 +57,5 @@ ion-content {
             background-color: #88D8B0;
             color: white;
         }
-    
     }
 }

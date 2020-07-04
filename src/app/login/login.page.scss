@@ -1,0 +1,17 @@
+.background-image{
+    --background: url(../../assets/backgrounds/bg-login.svg) 0 0/100% 100% no-repeat;
+}
+
+.login-container {
+    position: absolute;
+    bottom: 1em;
+    width: 100%;
+}
+
+button {
+    border-radius: 1em;
+    padding: 1em 4em;
+    background-color: #88D8B0;
+    color: white;
+    width: 100%;
+}
