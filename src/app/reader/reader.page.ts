@@ -4,6 +4,7 @@ import { QuestionDialogPage } from './question-dialog/question-dialog.page';
 import { BookService } from '../../services/book.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/services/user.service';
+import { LoadingService } from 'src/services/loading.service';
 @Component({
     selector: 'app-reader',
     templateUrl: 'reader.page.html',
@@ -35,16 +36,15 @@ export class ReaderPage implements OnInit {
         private bookService: BookService,
         private router: Router,
         private route: ActivatedRoute,
-        private userService: UserService
+        private userService: UserService,
+        private loadingService: LoadingService
     ) { }
-
-
 
     ngOnInit() {
         const { bookId, chapterId } = this.route.snapshot.params;
-
         this.getUser();
         this.chapterId = chapterId;
+        this.loadingService.presentLoading();
         this.bookService.getChapterByBook(bookId, chapterId)
             .subscribe(response => {
                 this.book = response;
@@ -55,6 +55,7 @@ export class ReaderPage implements OnInit {
 
     async question() {
         if (this.book && this.chapterId > 0) {
+            await this.loadingService.dismiss();
             const modal = await this.modalController.create({
                 component: QuestionDialogPage,
                 cssClass: 'my-custom-class',

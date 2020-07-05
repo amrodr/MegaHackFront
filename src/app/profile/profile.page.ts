@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from 'src/services/book.service';
 import { UserService } from 'src/services/user.service';
 import { Router } from '@angular/router';
+import { LoadingService } from 'src/services/loading.service';
 
 @Component({
   selector: 'app-profile',
@@ -20,12 +21,14 @@ export class ProfilePage implements OnInit{
   constructor(
     private bookService: BookService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private loadingService: LoadingService
   ) {}
 
-  ngOnInit() {
-    this.getBooks();
-    this.getUser();
+  async ngOnInit() {
+   await this.loadingService.presentLoading();
+   await this.getBooks();
+   await this.getUser();
   }
 
   getBooks() {
@@ -37,8 +40,10 @@ export class ProfilePage implements OnInit{
   }
 
   getUser() {
+
     this.userService.getUser().subscribe(res => {
       this.currentUser = res;
+      this.loadingService.dismiss();
     });
   }
 

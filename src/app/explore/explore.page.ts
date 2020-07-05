@@ -3,6 +3,7 @@ import { BookService } from 'src/services/book.service';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { SearchResultPage } from './search-result/search-result.page';
+import { LoadingService } from 'src/services/loading.service';
 
 @Component({
     selector: 'app-explore',
@@ -20,7 +21,8 @@ export class ExplorePage implements OnInit {
     constructor(
         private bookService: BookService,
         private router: Router,
-        public modalController: ModalController
+        public modalController: ModalController,
+        private loadingService: LoadingService
     ) { }
 
 
@@ -32,10 +34,12 @@ export class ExplorePage implements OnInit {
         this.router.navigate(['/app/explore/book-details/', book._id]);
     }
 
-    getBooks() {
+    async getBooks() {
+        await this.loadingService.presentLoading();
         this.bookService.getBooks().subscribe(
             (res: any) => {
                 this.sections = res;
+                this.loadingService.dismiss();
             }
         );
     }
