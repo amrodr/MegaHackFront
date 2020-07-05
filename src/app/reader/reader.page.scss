@@ -4,10 +4,23 @@ ion-header {
         color: white;
         background-color: #88D8B0;
     }
+    ion-menu-button {
+        color: white;
+    }
  
+}
+.header-icon {
+    font-size: 2em;
+    color: white;
 }
 
 ion-content {
+    --ion-background-color:#f5deb3;;
+
+    .read-header {
+        width: 100%;
+        text-align: center;
+    }
     ion-col {
         h1 {
             text-align: center;
@@ -19,6 +32,14 @@ ion-content {
         p {
             text-align: justify;
         }
+    }
+   
+}
+
+ion-content.menu {
+    --ion-background-color: #246e52;
+    ion-item {
+        --ion-background-color: #246e52;
     }
 }
 

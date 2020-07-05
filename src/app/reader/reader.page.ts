@@ -40,12 +40,24 @@ export class ReaderPage implements OnInit {
         const modal = await this.modalController.create({
             component: QuestionDialogPage,
             cssClass: 'my-custom-class',
+            componentProps: {
+                questions: [
+                    {question: 'Jogará quadriball?', icon: 'quidditch', correct: false},
+                    {question: 'Aprenderá uma nova magia?', icon: 'enhance', correct: false},
+                    {question: 'Visitará o Hagrid?', icon: 'cave', correct: false},
+                    {question: 'Recebera uma carta?', icon: 'owl', correct: true},
+                ]
+            }
         });
         return await modal.present();
     }
 
     goToChapter(i){
         this.router.navigate([`/reader/${this.book._id}/${i}`]);
+    }
+
+    closeBook() {
+        this.router.navigate([`/app/explore`]);
     }
 
     openFirst() {

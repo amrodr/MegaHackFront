@@ -6,6 +6,10 @@ ion-searchbar {
     background: #88D8B0;
 }
 
+ion-content {
+    --ion-background-color:#FAFAFA;
+}
+
 .category-banner, .m_05em {
     margin: .5em;
     cursor: pointer;

@@ -14,7 +14,8 @@ ion-header {
     margin: 1em;
 }
 
-ion-content {    
+ion-content {   
+     --ion-background-color:#FAFAFA; 
     ion-card {
         background-color: #88D8B0;
     }

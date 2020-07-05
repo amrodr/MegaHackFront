@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../../services/book.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 interface BookDetails {
     _id?: string;
@@ -25,6 +25,7 @@ export class BookDetailsPage implements OnInit {
 
     constructor(
         private bookService: BookService,
+        private router: Router,
         private route: ActivatedRoute
     ) { }
 
@@ -35,5 +36,9 @@ export class BookDetailsPage implements OnInit {
             .subscribe((response: BookDetails) => {
                 this.book = response;
             });
+    }
+
+    read() {
+        this.router.navigate([`/reader/${this.book._id}/0`]);
     }
 }
