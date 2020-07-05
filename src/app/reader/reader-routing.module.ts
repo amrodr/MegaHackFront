@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ReaderPage } from './reader.page';
 
 const routes: Routes = [{
-    path: ':bookId/:chapter',
+    path: ':bookId/:chapterId',
     component: ReaderPage
 }];
 

@@ -26,23 +26,16 @@
       <ion-buttons slot="end">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>Lendo Harry Potter</ion-title>
+      <ion-title>{{ book?.name }}</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
     <ion-grid>
       <ion-row>
         <ion-col size='12'>
-          <h1 text-center>Uma história</h1>
-          <i text-center>Author</i>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
+          <h1 text-center>{{ book?.chapter?.name || 'Este capítulo não existe!' }}</h1>
+          <i text-center>{{ book?.author }}</i>
+          <p *ngIf="book?.chapter?.pages" [innerHTML]="book?.chapter?.pages[0]" ></p>
         </ion-col>
       </ion-row>
     </ion-grid>
