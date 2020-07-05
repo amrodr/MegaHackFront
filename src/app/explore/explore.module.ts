@@ -19,6 +19,6 @@ import { BookDetailsPage } from './book-details/book-details.page';
     ExplorePageRoutingModule
   ],
   declarations: [ExplorePage, BookDetailsPage],
-  providers: [ BookService ],
+  providers: [ BookService ]
 })
 export class ExplorePageModule {}
