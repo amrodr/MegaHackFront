@@ -3,15 +3,15 @@
     <img src="assets/harry-potter.svg" alt="">
   </div>
 
-  <h2>O que o Harry fará neste capítulo?</h2>
-  <p>Valendo 20 pontos</p>
+  <h2>{{ dialog?.question }}</h2>
+  <p>Valendo {{ dialog?.points }} pontos</p>
 
   <ion-grid>
     <ion-row>
-      <ion-col size="6" *ngFor="let q of questions">
-        <ion-card (click)="choose(q)">
-          <img [src]="'assets/icon/' + q?.icon +'.svg'" alt="">
-          <p>{{q?.question}}</p>
+      <ion-col size="6" *ngFor="let a of dialog?.answers">
+        <ion-card (click)="choose(a)">
+          <img [src]="'assets/icon/' + a?.icon +'.svg'" alt="">
+          <p>{{a?.alternative}}</p>
         </ion-card>
       </ion-col>
     </ion-row>

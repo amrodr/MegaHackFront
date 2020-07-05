@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
     selector: 'app-reader',
     templateUrl: 'reader.page.html',
+
     styleUrls: ['./reader.page.scss'],
 })
 export class ReaderPage implements OnInit {
@@ -30,7 +31,7 @@ export class ReaderPage implements OnInit {
     ]
 
     book: any;
-
+    chapterId: any;
     constructor(
         private menu: MenuController,
         private modalController: ModalController,
@@ -39,30 +40,32 @@ export class ReaderPage implements OnInit {
         private route: ActivatedRoute
     ) { }
 
+
+
     ngOnInit() {
-        this.question();
         const { bookId, chapterId } = this.route.snapshot.params;
 
+        this.chapterId = chapterId;
         this.bookService.getChapterByBook(bookId, chapterId)
             .subscribe(response => {
                 this.book = response;
+                this.question();
+                console.log(this.book.chapters[this.chapterId])
             });
     }
 
     async question() {
-        const modal = await this.modalController.create({
-            component: QuestionDialogPage,
-            cssClass: 'my-custom-class',
-            componentProps: {
-                questions: [
-                    {question: 'Jogará quadriball?', icon: 'quidditch', correct: false},
-                    {question: 'Aprenderá uma nova magia?', icon: 'enhance', correct: false},
-                    {question: 'Visitará o Hagrid?', icon: 'cave', correct: false},
-                    {question: 'Recebera uma carta?', icon: 'owl', correct: true},
-                ]
-            }
-        });
-        return await modal.present();
+        if(this.book && this.chapterId > 0) {
+            const modal = await this.modalController.create({
+                component: QuestionDialogPage,
+                cssClass: 'my-custom-class',
+                componentProps: {
+                    dialog: this.book.chapters[this.chapterId].dialog
+                }
+            });
+            return await modal.present();
+        }
+      
     }
 
     goToChapter(i){

@@ -9,14 +9,14 @@ import { ModalController } from '@ionic/angular';
 export class QuestionDialogPage implements OnInit {
 
 
-  @Input() questions;
+  @Input() dialog;
 
   constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
 
-  choose(question) {
+  choose(answer) {
     this.modalCtrl.dismiss({
       dismissed: true
     });

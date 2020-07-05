@@ -15,6 +15,4 @@ export class UserService {
     return this.http.post(`${this.baseURL}/user`, credentials);
   }
 
-  // getVacanyById(vacancyId, params = {}): Observable<Vacancy> {
-  // }
 }
