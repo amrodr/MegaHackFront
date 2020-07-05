@@ -8,6 +8,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { ExplorePageRoutingModule } from './explore-routing.module';
 
 import { BookService } from 'src/services/book.service';
+
+import { BookDetailsPage } from './book-details/book-details.page';
 @NgModule({
   imports: [
     IonicModule,
@@ -16,7 +18,7 @@ import { BookService } from 'src/services/book.service';
     ExploreContainerComponentModule,
     ExplorePageRoutingModule
   ],
-  declarations: [ExplorePage],
+  declarations: [ExplorePage, BookDetailsPage],
   providers: [ BookService ],
 })
 export class ExplorePageModule {}

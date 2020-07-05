@@ -11,7 +11,6 @@ export class ReaderPage {
 constructor(private menu: MenuController) { }
 
   openFirst() {
-    console.log('openFirst')
     this.menu.enable(true, 'first');
     this.menu.open('first');
   }

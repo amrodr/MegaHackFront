@@ -12,8 +12,8 @@ export class ProfilePage implements OnInit{
   sliderConfiguration = {
     spaceBetween: 10,
     slidesPerView: 2.6
-  }
-  
+  };
+
   constructor(private bookService: BookService) {}
 
   ngOnInit() {
