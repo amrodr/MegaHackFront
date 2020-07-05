@@ -40,11 +40,11 @@ export class ReaderPage implements OnInit {
         private loadingService: LoadingService
     ) { }
 
-    ngOnInit() {
+    async ngOnInit() {
         const { bookId, chapterId } = this.route.snapshot.params;
         this.getUser();
         this.chapterId = chapterId;
-        this.loadingService.presentLoading();
+        await this.loadingService.presentLoading();
         this.bookService.getChapterByBook(bookId, chapterId)
             .subscribe(response => {
                 this.book = response;
@@ -54,8 +54,8 @@ export class ReaderPage implements OnInit {
     }
 
     async question() {
+        await this.loadingService.dismiss();
         if (this.book && this.chapterId > 0) {
-            await this.loadingService.dismiss();
             const modal = await this.modalController.create({
                 component: QuestionDialogPage,
                 cssClass: 'my-custom-class',
