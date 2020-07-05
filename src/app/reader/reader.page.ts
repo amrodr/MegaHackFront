@@ -13,6 +13,8 @@ import { LoadingService } from 'src/services/loading.service';
 })
 export class ReaderPage implements OnInit {
 
+    // tslint:disable-next-line: ban-types
+    loading: Boolean = true;
     mainSliderConfiguration = {
         spaceBetween: 6,
         centeredSlides: true,
@@ -50,6 +52,7 @@ export class ReaderPage implements OnInit {
                 this.book = response;
                 this.question();
                 this.readingUsers = this.book.chapters[this.chapterId].readingUsers;
+                this.loading = false;
             });
     }
 
