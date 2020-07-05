@@ -19,4 +19,8 @@ export class UserService {
     return this.http.get(`${this.baseURL}/user`);
   }
 
+  public updateUserPoints(bookId, chapterId, response) {
+    return this.http.patch(`${this.baseURL}/books/${bookId}/chapter/${chapterId}/dialog/${response}`, {});
+  }
+
 }

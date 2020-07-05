@@ -29,7 +29,7 @@
         <ion-slide *ngFor="let user of readingUsers">
           <div class="current_users--reading">
             <ion-avatar>
-              <img [src]="user?.userPicture" alt="">
+              <img [src]="'assets/photos/'+user?.userPicture" alt="">
             </ion-avatar>
             <p>{{user?.name}}</p>
           </div>

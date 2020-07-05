@@ -3,6 +3,7 @@ import { MenuController, ModalController } from '@ionic/angular';
 import { QuestionDialogPage } from './question-dialog/question-dialog.page';
 import { BookService } from '../../services/book.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/services/user.service';
 @Component({
     selector: 'app-reader',
     templateUrl: 'reader.page.html',
@@ -22,13 +23,9 @@ export class ReaderPage implements OnInit {
         slidesPerView: 4.6
     }
 
-    readingUsers = [
-        {name: 'João', userPicture: ''},
-        {name: 'Letícia', userPicture: ''},
-        {name: 'Amanda', userPicture: ''},
-        {name: 'Pedro', userPicture: ''},
-        {name: 'Julio', userPicture: ''}
-    ]
+    user: any;
+
+    readingUsers = []
 
     book: any;
     chapterId: any;
@@ -37,7 +34,8 @@ export class ReaderPage implements OnInit {
         private modalController: ModalController,
         private bookService: BookService,
         private router: Router,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private userService: UserService
     ) { }
 
 
@@ -45,12 +43,14 @@ export class ReaderPage implements OnInit {
     ngOnInit() {
         const { bookId, chapterId } = this.route.snapshot.params;
 
+        this.getUser();
         this.chapterId = chapterId;
         this.bookService.getChapterByBook(bookId, chapterId)
             .subscribe(response => {
                 this.book = response;
                 this.question();
                 console.log(this.book.chapters[this.chapterId])
+                this.readingUsers = this.book.chapters[this.chapterId].readingUsers;
             });
     }
 
@@ -60,7 +60,10 @@ export class ReaderPage implements OnInit {
                 component: QuestionDialogPage,
                 cssClass: 'my-custom-class',
                 componentProps: {
-                    dialog: this.book.chapters[this.chapterId].dialog
+                    bookId: this.book._id,
+                    chapterId: this.chapterId,
+                    dialog: this.book.chapters[this.chapterId].dialog,
+                    user: this.user
                 }
             });
             return await modal.present();
@@ -83,6 +86,12 @@ export class ReaderPage implements OnInit {
 
     openEnd() {
         this.menu.open('end');
+    }
+
+    getUser() {
+        this.userService.getUser().subscribe(res => {
+            this.user = res;
+        });
     }
 
     openMenu() {

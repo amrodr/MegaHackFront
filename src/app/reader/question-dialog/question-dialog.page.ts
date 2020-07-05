@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-question-dialog',
@@ -10,15 +11,20 @@ export class QuestionDialogPage implements OnInit {
 
 
   @Input() dialog;
+  @Input() user;
+  @Input() bookId;
+  @Input() chapterId;
 
-  constructor(private modalCtrl: ModalController) { }
+  constructor(private modalCtrl: ModalController, private userService: UserService) { }
 
   ngOnInit() {
   }
 
-  choose(answer) {
-    this.modalCtrl.dismiss({
-      dismissed: true
+  choose(answer) {    
+    this.userService.updateUserPoints(this.bookId, this.chapterId, answer.alternative).subscribe(res => {
+      this.modalCtrl.dismiss({
+        dismissed: true
+      });
     });
   }
 
