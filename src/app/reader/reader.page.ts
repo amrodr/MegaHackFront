@@ -20,7 +20,7 @@ export class ReaderPage implements OnInit {
     usersSliderConfiguration = {
         spaceBetween: 6,
         slidesPerView: 4.6
-    }
+    };
 
     readingUsers = [
         {name: 'João', userPicture: ''},
@@ -28,7 +28,7 @@ export class ReaderPage implements OnInit {
         {name: 'Amanda', userPicture: ''},
         {name: 'Pedro', userPicture: ''},
         {name: 'Julio', userPicture: ''}
-    ]
+    ];
 
     book: any;
     chapterId: any;
@@ -50,12 +50,11 @@ export class ReaderPage implements OnInit {
             .subscribe(response => {
                 this.book = response;
                 this.question();
-                console.log(this.book.chapters[this.chapterId])
             });
     }
 
     async question() {
-        if(this.book && this.chapterId > 0) {
+        if (this.book && this.chapterId > 0) {
             const modal = await this.modalController.create({
                 component: QuestionDialogPage,
                 cssClass: 'my-custom-class',
@@ -65,7 +64,6 @@ export class ReaderPage implements OnInit {
             });
             return await modal.present();
         }
-      
     }
 
     goToChapter(i){

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from 'src/services/book.service';
 import { UserService } from 'src/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +19,9 @@ export class ProfilePage implements OnInit{
 
   constructor(
     private bookService: BookService,
-    private userService: UserService) {}
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.getBooks();
@@ -29,10 +32,13 @@ export class ProfilePage implements OnInit{
     this.books = this.bookService.getMyBooks();
   }
 
+  navigate(book: any): void {
+    this.router.navigate(['/app/explore/book-details/', book._id]);
+  }
+
   getUser() {
     this.userService.getUser().subscribe(res => {
       this.currentUser = res;
-      console.log(this.currentUser);
     });
   }
 

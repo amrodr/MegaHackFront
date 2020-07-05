@@ -1,13 +1,13 @@
 <ion-content [fullscreen]="true">
     <ion-avatar class="center-object">
-      <img src="">
+      <img src="../../assets/photos/{{ currentUser?.photo }}">
     </ion-avatar>    
     <h1 text-center>{{ currentUser?.username }}</h1>
     <p text-center>{{ currentUser?.status || 'Sem Status' }}</p>
 
     <section class="highlight-container">
       <p>Nível {{ currentUser?.level || 0 }}</p>
-      <ion-progress-bar value="0.4"></ion-progress-bar>
+      <ion-progress-bar value="{{ currentUser?.levelProgress / 100 }}"></ion-progress-bar>
     </section>
 
     <ion-grid>
@@ -39,7 +39,7 @@
     </ion-row>
     <ion-slides [options]="sliderConfiguration">
       <ion-slide *ngFor="let userBooks of currentUser?.currentReadings" class="category_section">
-          <ion-card class="m_05em" *ngIf="userBooks.favorite">
+          <ion-card class="m_05em" *ngIf="userBooks.favorite" (click)="navigate(userBooks.book)" style="cursor: pointer;">
             <img [src]="userBooks?.book?.cover" />
           </ion-card>          
       </ion-slide>
