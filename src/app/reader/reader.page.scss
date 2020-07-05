@@ -14,6 +14,10 @@ ion-header {
     color: white;
 }
 
+.slides-custom {
+    background-color: #6aa286;
+}
+
 ion-content {
     --ion-background-color:#f5deb3;;
 
@@ -46,6 +50,7 @@ ion-content.menu {
     --ion-background-color: #246e52;
     ion-item {
         --ion-background-color: #246e52;
+        color: white;
     }
 }
 

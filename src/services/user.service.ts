@@ -15,4 +15,8 @@ export class UserService {
     return this.http.post(`${this.baseURL}/user`, credentials);
   }
 
+  public getUser() {
+    return this.http.get(`${this.baseURL}/user`);
+  }
+
 }

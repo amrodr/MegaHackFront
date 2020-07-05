@@ -2,11 +2,11 @@
     <ion-avatar class="center-object">
       <img src="">
     </ion-avatar>    
-    <h1 text-center>Pedro Henrique</h1>
-    <p text-center>Superleitor</p>
+    <h1 text-center>{{ currentUser?.username }}</h1>
+    <p text-center>{{ currentUser?.status || 'Sem Status' }}</p>
 
     <section class="highlight-container">
-      <p>Nível 2</p>
+      <p>Nível {{ currentUser?.level || 0 }}</p>
       <ion-progress-bar value="0.4"></ion-progress-bar>
     </section>
 
@@ -16,7 +16,7 @@
           <ion-card class="highlight-container">
             <div class="stats">
               <label>Pontos</label>
-              <p>1312</p>
+              <p>{{ currentUser?.score || 0 }}</p>
             </div>          
           </ion-card>
         </ion-col>
@@ -24,22 +24,23 @@
           <ion-card class="highlight-container">
             <div class="stats">
               <label>Livros Lidos</label>
-              <p>23</p>
+              <p>{{ currentUser?.completedBooks || 0 }}</p>
             </div>    
           </ion-card>
         </ion-col>
       </ion-row>
     </ion-grid>
 
+    .
     <ion-row class="divider">
       <ion-col text-left align-self-center>
         Favoritos
       </ion-col>
     </ion-row>
     <ion-slides [options]="sliderConfiguration">
-      <ion-slide *ngFor="let book of books" class="category_section">
-          <ion-card class="m_05em">
-            <img src="assets/covers/1.jpg" />
+      <ion-slide *ngFor="let userBooks of currentUser?.currentReadings" class="category_section">
+          <ion-card class="m_05em" *ngIf="userBooks.favorite">
+            <img [src]="userBooks?.book?.cover" />
           </ion-card>          
       </ion-slide>
     </ion-slides>

@@ -7,11 +7,13 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Meus Livros</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Meus Livros"></app-explore-container>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let myBooks of user?.currentReadings">
+        <ion-card>
+          <img [src]="myBooks?.book?.cover" alt="">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

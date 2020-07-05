@@ -47,7 +47,7 @@
 
     <ion-row>
       <ion-icon name="calendar-outline" class="margin"></ion-icon>
-      <p class="infos">Publicado em {{ book?.publicationDate }}</p>
+      <p class="infos">Publicado em {{ book?.publicationDate | date: 'yyyy' }}</p>
     </ion-row>
 
     <ion-row>
@@ -56,12 +56,17 @@
     </ion-row>
 
     <ion-row class="button-margin">
-      <button class="button-details">
-        <ion-icon name="download-outline"></ion-icon> Baixar
-      </button>
-      <button class="button-details">
-        <ion-icon name="heart-outline"></ion-icon> Favoritar
-      </button>
+      <ion-col size="6">
+        <button class="button-details">
+          <ion-icon name="download-outline"></ion-icon> Baixar
+        </button>
+      </ion-col>
+      
+      <ion-col size="6">
+        <button class="button-details">
+          <ion-icon name="heart-outline"></ion-icon> Favoritar
+        </button>
+      </ion-col>        
     </ion-row>
 
     <p class="margin"><b>Comentarios</b></p>
