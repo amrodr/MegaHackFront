@@ -29,7 +29,7 @@ export class ExplorePage implements OnInit {
     }
 
     navigate(book: any): void {
-        this.router.navigate(['/book-details', book._id]);
+        this.router.navigate(['/app/explore/book-details/', book._id]);
     }
 
     getBooks() {
