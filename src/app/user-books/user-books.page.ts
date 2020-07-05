@@ -22,7 +22,7 @@ export class UserBooksPage implements OnInit{
     this.getUser();
   }
 
-async getUser() {
+  async getUser() {
     await this.loadingService.presentLoading();
     this.userService.getUser().subscribe(res => {
       this.user = res;
