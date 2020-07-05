@@ -3,20 +3,19 @@
 </ion-header>
 
 <ion-content [fullscreen]="true"> 
-    <div *ngFor="let cat of sections" class="category-block">
-      <ion-row no-padding class="category-banner">
-        <ion-col text-left align-self-center>
-          {{ cat?.category }}
-        </ion-col>
-      </ion-row>
+  <div *ngFor="let cat of sections" class="category-block">
+    <ion-row no-padding class="category-banner">
+      <ion-col text-left align-self-center>
+        {{ cat?.category }}
+      </ion-col>
+    </ion-row>
 
-      <ion-slides [options]="sliderConfiguration">
-        <ion-slide *ngFor="let book of cat.books" class="category_section">
-            <ion-card class="m_05em" (click)="navigate(book)">
-              <img src="{{book.cover}}" />
-            </ion-card>          
-        </ion-slide>
-      </ion-slides>
-    </div>
- 
+    <ion-slides [options]="sliderConfiguration">
+      <ion-slide *ngFor="let book of cat.books" class="category_section">
+          <ion-card class="m_05em" (click)="navigate(book)">
+            <img src="{{book.cover}}" />
+          </ion-card>          
+      </ion-slide>
+    </ion-slides>
+  </div>
 </ion-content>
