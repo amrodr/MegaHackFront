@@ -8,6 +8,13 @@ import { QuestionDialogPage } from './question-dialog/question-dialog.page';
 })
 export class ReaderPage implements OnInit {
 
+
+    pages: any = [1, 2]
+    mainSliderConfiguration = {
+        spaceBetween: 6,
+        centeredSlides: true,
+        slidesPerView: 1
+    }
     constructor(
         private menu: MenuController,
         private modalController: ModalController

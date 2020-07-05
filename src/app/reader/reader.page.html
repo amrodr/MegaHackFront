@@ -30,21 +30,29 @@
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <ion-grid>
-      <ion-row>
-        <ion-col size='12'>
-          <h1 text-center>Uma história</h1>
-          <i text-center>Author</i>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <h1 text-center>Uma história</h1>
+    <i text-center>Author</i>
+    <ion-slides class="slider_row" [options]="mainSliderConfiguration">
+      <ion-slide *ngFor="let p of pages">
+        <div class="slider_card">
+          <ion-grid>
+            <ion-row>
+              <ion-col size='12'>
+               
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque vero praesentium doloremque magnam quis facilis nihil pariatur facere laudantium. Saepe, quis non veritatis molestias nisi quisquam atque fugit beatae commodi!</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-slide>
+    </ion-slides>
+    
   </ion-content>
 </div>
