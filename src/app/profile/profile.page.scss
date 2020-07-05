@@ -1,0 +1,47 @@
+ion-content {
+    width: 100%;
+    h1 {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+    }
+    ion-avatar.center-object {
+        margin: 6em auto .5em auto;
+        text-align: center;
+        height: 12em;
+        width: 12em;
+        background: gray;
+    }
+
+    .highlight-container {
+        border-radius: 1em;
+        background: #88D8B0;
+        color: white;        
+        padding: 1em;
+        margin: 1em;
+        p {
+            text-align: left;
+            margin: 0em 0em 0.5em 0em;
+        }
+        .stats {
+            label {
+                margin: 0em 0em .5em 0em;
+            }
+            text-align: center;
+            p {
+                text-align: center;
+                font-size: 2em;
+                margin: 0;
+            }
+        }
+        ion-progress-bar {
+            height: 2em;
+            background-color: #FFCC5C;
+            border-radius: 5px;
+        }
+    }
+    ion-row.divider {
+        margin: 2em 0em 0em 1em;    
+    }
+}
