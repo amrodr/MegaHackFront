@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BookService } from 'src/services/book.service';
+import { ModalController } from '@ionic/angular';
 
 interface BookDetails {
     _id?: string;
@@ -12,7 +13,7 @@ interface BookDetails {
     numberPages: number;
 }
 
-interface Category extends BookDetails{
+interface Category extends BookDetails {
     category: string;
 }
 
@@ -26,18 +27,23 @@ export class SearchResultPage implements OnInit {
     @Input() categories;
 
     constructor(
-        private bookService: BookService
+        private bookService: BookService,
+        public modalCtrl: ModalController
     ) { }
 
     ngOnInit() {
         this.bookService.getFilteredBooks({})
             .subscribe((response: Category[]) => {
                 this.categories = response;
-
                 console.log(this.categories);
             });
     }
 
+    dismiss() {
+        this.modalCtrl.dismiss({
+            dismissed: true
+        });
+    }
 
     getBooks() {
 
