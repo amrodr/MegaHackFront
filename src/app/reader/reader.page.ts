@@ -1,30 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-reader',
-  templateUrl: 'reader.page.html',
-  styleUrls: ['./reader.page.scss'],
+    selector: 'app-reader',
+    templateUrl: 'reader.page.html',
+    styleUrls: ['./reader.page.scss'],
 })
-export class ReaderPage {
+export class ReaderPage implements OnInit {
 
-constructor(private menu: MenuController) { }
+    constructor(private menu: MenuController) { }
 
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
-  }
+    ngOnInit() {
+        
+    }
 
-  openEnd() {
-    this.menu.open('end');
-  }
+    openFirst() {
+        this.menu.enable(true, 'first');
+        this.menu.open('first');
+    }
 
-  // openCustom() {
-  //   this.menu.enable(true, 'custom');
-  //   this.menu.open('custom');
-  // }
+    openEnd() {
+        this.menu.open('end');
+    }
 
-  openMenu() {
-    this.menu.open();
-  }
+    // openCustom() {
+    //   this.menu.enable(true, 'custom');
+    //   this.menu.open('custom');
+    // }
+
+    openMenu() {
+        this.menu.open();
+    }
 }

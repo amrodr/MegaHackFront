@@ -3,15 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ReaderPage } from './reader.page';
 
-const routes: Routes = [
-  {
-    path: '',
+const routes: Routes = [{
+    path: ':bookId/:chapter',
     component: ReaderPage
-  }
-];
+}];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
-export class ReaderPageRoutingModule {}
+export class ReaderPageRoutingModule { }
