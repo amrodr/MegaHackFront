@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../../services/book.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingService } from 'src/services/loading.service';
 
 interface BookDetails {
     _id?: string;
@@ -26,15 +27,17 @@ export class BookDetailsPage implements OnInit {
     constructor(
         private bookService: BookService,
         private router: Router,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private loadingService: LoadingService
     ) { }
 
     ngOnInit() {
         const { bookId } = this.route.snapshot.params;
-
+        this.loadingService.presentLoading();
         this.bookService.getBookDetail(bookId)
-            .subscribe((response: BookDetails) => {
+            .subscribe((response: BookDetails) => {                
                 this.book = response;
+                this.loadingService.dismiss();
             });
     }
 
