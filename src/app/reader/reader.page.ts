@@ -23,19 +23,9 @@ export class ReaderPage implements OnInit {
         slidesPerView: 4.6
     };
 
-<<<<<<< HEAD
     user: any;
 
-    readingUsers = []
-=======
-    readingUsers = [
-        {name: 'João', userPicture: ''},
-        {name: 'Letícia', userPicture: ''},
-        {name: 'Amanda', userPicture: ''},
-        {name: 'Pedro', userPicture: ''},
-        {name: 'Julio', userPicture: ''}
-    ];
->>>>>>> 6beb6d5ea990797a43b60d226035abc8607116ad
+    readingUsers = [];
 
     book: any;
     chapterId: any;

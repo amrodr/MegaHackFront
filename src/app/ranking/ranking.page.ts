@@ -1,19 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-ranking',
   templateUrl: 'ranking.page.html',
   styleUrls: ['ranking.page.scss']
 })
-export class RankingPage {
+export class RankingPage implements OnInit {
 
-  private users = [ 
-    {id: 1, name: 'João', points: 1000, rank: 'Leader'},
-    {id: 2, name: 'Maria', points: 432, rank: 'Reader'},
-    {id: 3, name: 'Pâmela', points: 332, rank: 'Apprendice'},
-    {id: 4, name: 'Josué', points: 223, rank: 'Apprendice'},
-  ]
+  rankedUsers: any;
 
-  constructor() {}
+  constructor(
+    private userService: UserService
+  ) {}
 
+  ngOnInit() {
+    this.userService.getRank()
+      .subscribe(response => {
+        this.rankedUsers = response;
+      });
+  }
 }

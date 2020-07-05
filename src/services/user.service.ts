@@ -23,4 +23,9 @@ export class UserService {
     return this.http.patch(`${this.baseURL}/books/${bookId}/chapter/${chapterId}/dialog/${response}`, {});
   }
 
+  public getRank() {
+    return this.http.get(`${this.baseURL}/user/rank`);
+  }
+
 }
+

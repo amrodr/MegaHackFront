@@ -10,7 +10,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let myBooks of user?.currentReadings">
-        <ion-card>
+        <ion-card style="cursor: pointer;" (click)="navigate(myBooks.book)">
           <img [src]="myBooks?.book?.cover" alt="">
         </ion-card>
       </ion-col>

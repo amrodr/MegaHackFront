@@ -1,19 +1,16 @@
-
-
-
 <ion-content [fullscreen]="true">
 
   <ion-row class="my-score">
     <ion-col size="4">
       <ion-avatar>
-        <img src="">
+        <img src="../../assets/photos/{{ rankedUsers?.user?.photo }}">
       </ion-avatar>
     </ion-col>
    
     <ion-col size="8">
       <ion-label>
         <h2>Meu Usuario</h2>
-        <h3>0 pontos</h3>
+        <h3>{{ rankedUsers?.user?.score || 0 }} pontos</h3>
         <p>Superleitor</p>
       </ion-label>
     </ion-col>
@@ -21,18 +18,17 @@
 
   <hr>
   <ion-list>
-
-    <ion-item *ngFor="let u of users">
+    <ion-item *ngFor="let u of rankedUsers?.users; let i = index">
       <ion-avatar slot="start">
-        <img src="">
+        <img src="../../assets/photos/{{ u?.photo }}">
       </ion-avatar>
       <ion-label>
-        <h2>{{u.name}}</h2>
-        <h3>{{u.points || 0}} pontos</h3>
+        <h2>{{u?.name}}</h2>
+        <h3>{{u?.score || 0}} pontos</h3>
         <p>Superleitor</p>
       </ion-label>
-      <ion-badge slot="end" color="primary">{{u.rank}}</ion-badge>
+      <ion-badge slot="end" color="primary">{{u?.rank}}</ion-badge>
     </ion-item>
-    </ion-list>
+  </ion-list>
 
 </ion-content>
