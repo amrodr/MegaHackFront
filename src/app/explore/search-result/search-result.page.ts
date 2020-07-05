@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { BookService } from 'src/services/book.service';
-import { ModalController } from '@ionic/angular';
+import { ModalController, IonSearchbar } from '@ionic/angular';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 interface BookDetails {
     _id?: string;
@@ -26,16 +28,32 @@ export class SearchResultPage implements OnInit {
 
     @Input() categories;
 
+    searchSubscribeResult: Subscription;
+
     constructor(
         private bookService: BookService,
-        public modalCtrl: ModalController
+        public modalCtrl: ModalController,
+        private router: Router
     ) { }
 
     ngOnInit() {
-        this.bookService.getFilteredBooks({})
+        this.searchSubscribeResult = this.bookService.getFilteredBooks('all')
             .subscribe((response: Category[]) => {
                 this.categories = response;
-                console.log(this.categories);
+            });
+    }
+
+    searching($event): void {
+        const { value } = $event.target;
+
+        if (this.searchSubscribeResult) {
+            this.searchSubscribeResult.unsubscribe();
+            delete this.searchSubscribeResult;
+        }
+
+        this.searchSubscribeResult = this.bookService.getFilteredBooks(value || 'all')
+            .subscribe((response: Category[]) => {
+                this.categories = response;
             });
     }
 
@@ -45,8 +63,10 @@ export class SearchResultPage implements OnInit {
         });
     }
 
-    getBooks() {
-
+    getBookDetails(book: BookDetails): void {
+        this.router.navigate(['/app/explore/book-details/', book._id])
+            .then(response => {
+                this.dismiss();
+            });
     }
-
 }

@@ -1,6 +1,7 @@
 <ion-header [translucent]="true">
   <ion-icon name="chevron-up-outline" (click)="dismiss()"></ion-icon>
-  <ion-searchbar showCancelButton="never" placeholder="Procure por um livro que goste">
+  <ion-searchbar showCancelButton="never" placeholder="Procure por um livro que goste" (keyup)="searching($event)">
+
   </ion-searchbar>
 </ion-header>
 
@@ -9,22 +10,20 @@
      <p class="m-1em">
       {{ category.category }}
      </p> 
-      <ion-card *ngFor="let book of category.books">
-        <ion-grid>
-          <ion-row no-padding>
-            <ion-col size="4">
-              <img src="{{book?.cover}}" alt="Capa do Livro">
-            </ion-col>
-            <ion-col size="8" padding>
-              <b no-margin>{{ book?.name }}</b>
-              <p no-margin>{{ book?.author }}</p>
-              <img src="" alt="stars" margin>
-              <p>{{ book?.pages || 0 }} paginas</p>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-card>
+    <ion-card *ngFor="let book of category.books">
+      <ion-grid (click)="getBookDetails(book)" style="cursor: pointer;">
+        <ion-row no-padding>
+          <ion-col size="4">
+            <img src="{{book?.cover}}" alt="Capa do Livro">
+          </ion-col>
+          <ion-col size="8" padding>
+            <b no-margin>{{ book?.name }}</b>
+            <p no-margin>{{ book?.author }}</p>
+            <!-- <img src="" alt="stars" margin> -->
+            <p>{{ book?.pages || 0 }} paginas</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
   </div>
-
-
 </ion-content>
