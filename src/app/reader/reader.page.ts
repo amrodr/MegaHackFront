@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
-
+import { MenuController, ModalController } from '@ionic/angular';
+import { QuestionDialogPage } from './question-dialog/question-dialog.page';
 @Component({
     selector: 'app-reader',
     templateUrl: 'reader.page.html',
@@ -8,10 +8,21 @@ import { MenuController } from '@ionic/angular';
 })
 export class ReaderPage implements OnInit {
 
-    constructor(private menu: MenuController) { }
+    constructor(
+        private menu: MenuController,
+        private modalController: ModalController
+    ) { }
 
     ngOnInit() {
+        this.question();
+    }
 
+    async question() {
+        const modal = await this.modalController.create({
+            component: QuestionDialogPage,
+            cssClass: 'my-custom-class',
+        });
+        return await modal.present();
     }
 
     openFirst() {

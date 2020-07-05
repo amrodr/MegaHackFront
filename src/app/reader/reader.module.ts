@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ReaderPageRoutingModule } from './reader-routing.module';
 
 import { ReaderPage } from './reader.page';
+import { QuestionDialogPage } from './question-dialog/question-dialog.page';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ReaderPage } from './reader.page';
     IonicModule,
     ReaderPageRoutingModule
   ],
-  declarations: [ReaderPage]
+  declarations: [ReaderPage, QuestionDialogPage],
+  entryComponents: [QuestionDialogPage]
 })
 export class ReaderPageModule {}
