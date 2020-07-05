@@ -5,15 +5,14 @@
 <ion-content [fullscreen]="true">
 
   <ion-slides class="slider_row" [options]="mainSliderConfiguration">
-    <ion-slide *ngFor="let book of books">
+    <ion-slide *ngFor="let readingBook of user?.currentReadings">
       <div class="slider_card">
-        <img src="assets/covers/1.jpg" />
-        <h1>{{ book?.name }}</h1>
-        <p>{{ book?.author }}</p>
+        <img [src]="readingBook?.book?.cover" />
+        <h1>{{ readingBook?.book?.name }}</h1>
+        <p>{{ readingBook?.book?.author }}</p>
         <div class="io-container">
-          <ion-progress-bar color="success" value="{{ book?.percentage }}"></ion-progress-bar>
+          <ion-progress-bar color="success" value="{{ readingBook?.book?.percentage }}"></ion-progress-bar>
         </div>
-        <button>Atualizar página</button>
       </div>
     </ion-slide>
   </ion-slides>
@@ -26,9 +25,9 @@
 
   <ion-slides [options]="secondarySliderConfiguration">
 
-    <ion-slide *ngFor="let book of books">
+    <ion-slide *ngFor="let readingBook of user?.currentReadings">
       <ion-card>
-        <img src="assets/covers/1.jpg" />
+        <img [src]="readingBook?.book?.cover" />
       </ion-card>
     </ion-slide>
   </ion-slides>
@@ -40,7 +39,7 @@
       </ion-col>
       <ion-col size="4" class="read_books">
           <p text-center>Você tem</p>
-          <h2 text-center>{{ books.length }}</h2>
+          <h2 text-center>{{ user?.readBooks || 0 }}</h2>
           <p text-center>livros lidos</p>
       </ion-col>
     </ion-row>

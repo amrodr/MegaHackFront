@@ -12,7 +12,7 @@ export class RankingPage implements OnInit {
   // tslint:disable-next-line: ban-types
   loading: Boolean = true;
   rankedUsers: any;
-
+  user: any;
   constructor(
     private userService: UserService,
     private loadingService: LoadingService
@@ -29,6 +29,15 @@ export class RankingPage implements OnInit {
         this.rankedUsers = response;
         this.loadingService.dismiss();
         this.loading = false;
+        this.getUser();
       });
+  }
+
+  async getUser() {
+    this.userService.getUser()
+    .subscribe(response => {
+      this.user = response;
+      this.loading = false;
+    });
   }
 }

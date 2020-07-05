@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BookService } from 'src/services/book.service';
+import { LoadingService } from 'src/services/loading.service';
+import { UserService } from 'src/services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -21,15 +23,32 @@ export class HomePage implements OnInit{
     slidesPerView: 1.4
   }
 
+  user: any;
+
 
   constructor(
     private bookService: BookService,
-    private router: Router
+    private userService: UserService,
+    private router: Router,
+    private loadingService: LoadingService
   ) {}
 
 
   ngOnInit() {
     this.books = this.bookService.getMyBooks();
+    this.getUser();
   }
+
+  async getUser() {
+    await this.loadingService.presentLoading();
+    this.userService.getUser().subscribe(
+        (res: any) => {
+            this.user = res;
+            console.log(this.user)
+            this.loadingService.dismiss();
+        }
+    );
+}
+
 
 }
