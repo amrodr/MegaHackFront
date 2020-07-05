@@ -57,6 +57,10 @@ export class BookService {
         return this.http.get(`${this.baseURL}/books/${bookId}`);
     }
 
+    getChapterByBook(bookId?: string, chapterId?: string) {
+        return this.http.get(`${this.baseURL}/books/${bookId}/chapter/${chapterId}`);
+    }
+
     getFilteredBooks(search: string) {
         return this.http.get(`${this.baseURL}/books/filtered/${search}`);
     }

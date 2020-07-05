@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuController, ModalController } from '@ionic/angular';
 import { QuestionDialogPage } from './question-dialog/question-dialog.page';
+import { BookService } from '../../services/book.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
     selector: 'app-reader',
     templateUrl: 'reader.page.html',
@@ -9,19 +11,29 @@ import { QuestionDialogPage } from './question-dialog/question-dialog.page';
 export class ReaderPage implements OnInit {
 
 
-    pages: any = [1, 2]
     mainSliderConfiguration = {
         spaceBetween: 6,
         centeredSlides: true,
         slidesPerView: 1
     }
+    book: any;
+
     constructor(
         private menu: MenuController,
-        private modalController: ModalController
+        private modalController: ModalController,
+        private bookService: BookService,
+        private router: Router,
+        private route: ActivatedRoute
     ) { }
 
     ngOnInit() {
         this.question();
+        const { bookId, chapterId } = this.route.snapshot.params;
+
+        this.bookService.getChapterByBook(bookId, chapterId)
+            .subscribe(response => {
+                this.book = response;
+            });
     }
 
     async question() {
@@ -32,6 +44,10 @@ export class ReaderPage implements OnInit {
         return await modal.present();
     }
 
+    goToChapter(i){
+        this.router.navigate([`/reader/${this.book._id}/${i}`]);
+    }
+
     openFirst() {
         this.menu.enable(true, 'first');
         this.menu.open('first');
@@ -40,11 +56,6 @@ export class ReaderPage implements OnInit {
     openEnd() {
         this.menu.open('end');
     }
-
-    // openCustom() {
-    //   this.menu.enable(true, 'custom');
-    //   this.menu.open('custom');
-    // }
 
     openMenu() {
         this.menu.open();
