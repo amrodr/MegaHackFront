@@ -5,13 +5,13 @@
 <ion-content [fullscreen]="true">
 
   <ion-slides class="slider_row" [options]="mainSliderConfiguration">
-    <ion-slide *ngFor="let readingBook of user?.currentReadings">
+    <ion-slide *ngFor="let readingBook of user?.currentReadings" (click)="goToDetail(readingBook)">
       <div class="slider_card">
         <img [src]="readingBook?.book?.cover" />
         <h1>{{ readingBook?.book?.name }}</h1>
         <p>{{ readingBook?.book?.author }}</p>
         <div class="io-container">
-          <ion-progress-bar color="success" value="{{ readingBook?.readingProgress }}"></ion-progress-bar>
+          <ion-progress-bar color="success" value="{{ readingBook?.readingProgress / 100}}"></ion-progress-bar>
         </div>
       </div>
     </ion-slide>
@@ -25,7 +25,7 @@
 
   <ion-slides [options]="secondarySliderConfiguration">
 
-    <ion-slide *ngFor="let readingBook of user?.currentReadings">
+    <ion-slide *ngFor="let readingBook of user?.currentReadings" (click)="goToDetail(readingBook)">
       <ion-card>
         <img [src]="readingBook?.book?.cover" />
       </ion-card>

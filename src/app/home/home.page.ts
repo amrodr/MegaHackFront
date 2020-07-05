@@ -34,20 +34,22 @@ export class HomePage implements OnInit{
   ) {}
 
 
-  ngOnInit() {
-    this.books = this.bookService.getMyBooks();
-    this.getUser();
-  }
+ngOnInit() {
+  this.books = this.bookService.getMyBooks();
+  this.getUser();
+}
 
-  async getUser() {
+async getUser() {
     await this.loadingService.presentLoading();
     this.userService.getUser().subscribe(
         (res: any) => {
             this.user = res;
-            console.log(this.user)
             this.loadingService.dismiss();
         }
     );
+}
+goToDetail(reading) {
+  this.router.navigate(['/app/explore/book-details/', reading.book._id]);
 }
 
 
