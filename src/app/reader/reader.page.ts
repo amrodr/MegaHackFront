@@ -10,12 +10,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ReaderPage implements OnInit {
 
-
     mainSliderConfiguration = {
         spaceBetween: 6,
         centeredSlides: true,
         slidesPerView: 1
-    }
+    };
+
     book: any;
 
     constructor(
