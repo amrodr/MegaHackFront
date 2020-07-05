@@ -12,7 +12,7 @@
   <ion-col>
     <ion-row class="m-l">
       <ion-card class="card">
-        <img src="assets/covers/1.jpg" />
+        <img src="{{ book?.cover }}" />
       </ion-card>
 
       <ion-col>
@@ -22,30 +22,27 @@
           <ion-icon name="star-outline"></ion-icon>
           <ion-icon name="star-outline"></ion-icon>
           <ion-icon name="star-outline"></ion-icon>
-          <p class="title"><b>O meu pé de laranja lima</b></p>
-          <p class="title autor">Por jose mouro de vasconcelos</p>
+          <p class="title"><b>{{ book?.name }}</b></p>
+          <p class="title autor">Por {{ book?.author }}</p>
         </div>
 
         <div class="class-book">
-          <p class="class-book-p">Infantil</p>
+          <p class="class-book-p">{{ book?.gender }}</p>
         </div>
       </ion-col>
     </ion-row>
 
     <p class="margin"><b>Sobre</b></p>
-    <p class="margin" style="font-size: 10px;">Meu Pé de Laranja Lima ou O Meu Pé de Laranja Lima é um romance juvenil,
-      escrito por José
-      Mauro de Vasconcelos e publicado em 1968. Foi traduzido para 52 línguas e publicado em 19 países, adotado em
-      escolas e adaptado para o cinema, televisão e teatro.</p>
+    <p class="margin" style="font-size: 10px;">{{ book?.description }}</p>
 
     <ion-row>
       <ion-icon name="document-outline" class="margin"></ion-icon>
-      <p class="infos">110 paginas</p>
+      <p class="infos">{{ book?.numberPages }}</p>
     </ion-row>
 
     <ion-row>
       <ion-icon name="calendar-outline" class="margin"></ion-icon>
-      <p class="infos">Publicado em 1968</p>
+      <p class="infos">Publicado em {{ book?.publicationDate }}</p>
     </ion-row>
 
     <ion-row>

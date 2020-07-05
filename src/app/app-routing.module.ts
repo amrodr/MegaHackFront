@@ -13,8 +13,7 @@ const routes: Routes = [
   {
     path: 'reader',
     loadChildren: () => import('./reader/reader.module').then(m => m.ReaderPageModule)
-  },
- 
+  }
 ];
 @NgModule({
   imports: [

@@ -5,7 +5,7 @@ import { BookDetailsPage } from './book-details.page';
 
 const routes: Routes = [
   {
-    path: '/book-details',
+    path: '/book-details/:bookId',
     component: BookDetailsPage
   }
 ];

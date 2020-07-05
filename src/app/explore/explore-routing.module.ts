@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     component: ExplorePage,
   }, {
-    path: 'book-details',
+    path: 'book-details/:bookId',
     component: BookDetailsPage,
   }, {
     path: 'search-result',
