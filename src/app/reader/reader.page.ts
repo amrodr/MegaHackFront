@@ -21,11 +21,21 @@ export class ReaderPage implements OnInit {
     usersSliderConfiguration = {
         spaceBetween: 6,
         slidesPerView: 4.6
-    }
+    };
 
+<<<<<<< HEAD
     user: any;
 
     readingUsers = []
+=======
+    readingUsers = [
+        {name: 'João', userPicture: ''},
+        {name: 'Letícia', userPicture: ''},
+        {name: 'Amanda', userPicture: ''},
+        {name: 'Pedro', userPicture: ''},
+        {name: 'Julio', userPicture: ''}
+    ];
+>>>>>>> 6beb6d5ea990797a43b60d226035abc8607116ad
 
     book: any;
     chapterId: any;
@@ -49,13 +59,12 @@ export class ReaderPage implements OnInit {
             .subscribe(response => {
                 this.book = response;
                 this.question();
-                console.log(this.book.chapters[this.chapterId])
                 this.readingUsers = this.book.chapters[this.chapterId].readingUsers;
             });
     }
 
     async question() {
-        if(this.book && this.chapterId > 0) {
+        if (this.book && this.chapterId > 0) {
             const modal = await this.modalController.create({
                 component: QuestionDialogPage,
                 cssClass: 'my-custom-class',
@@ -68,7 +77,6 @@ export class ReaderPage implements OnInit {
             });
             return await modal.present();
         }
-      
     }
 
     goToChapter(i){
