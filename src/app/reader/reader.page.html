@@ -25,6 +25,16 @@
       </ion-buttons>
       <ion-title>{{ book?.name }}</ion-title>
     </ion-toolbar>
+      <ion-slides class="slider_row" [options]="usersSliderConfiguration">
+        <ion-slide *ngFor="let user of readingUsers">
+          <div class="current_users--reading">
+            <ion-avatar>
+              <img [src]="user?.userPicture" alt="">
+            </ion-avatar>
+            <!-- <p>{{user?.name}}</p> -->
+          </div>
+        </ion-slide>
+      </ion-slides>
   </ion-header>
   <ion-content>
     <div class="read-header">

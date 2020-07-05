@@ -36,6 +36,12 @@ ion-content {
    
 }
 
+ion-avatar {
+    margin: 1em auto;
+    text-align: center;
+    background: black;
+}
+
 ion-content.menu {
     --ion-background-color: #246e52;
     ion-item {

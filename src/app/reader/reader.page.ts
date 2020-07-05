@@ -16,6 +16,19 @@ export class ReaderPage implements OnInit {
         slidesPerView: 1
     };
 
+    usersSliderConfiguration = {
+        spaceBetween: 6,
+        slidesPerView: 4.6
+    }
+
+    readingUsers = [
+        {name: 'João', userPicture: ''},
+        {name: 'Letícia', userPicture: ''},
+        {name: 'Amanda', userPicture: ''},
+        {name: 'Pedro', userPicture: ''},
+        {name: 'Julio', userPicture: ''}
+    ]
+
     book: any;
 
     constructor(
