@@ -1,0 +1,21 @@
+
+ion-content {
+    h2 {
+        text-align: center;
+    }
+    p {
+        text-align: center;
+    }
+    img {
+        width: 50%;
+        margin: 5% 25%;
+    }
+    
+    ion-col {
+        ion-card {
+            padding: 3em;
+            background-color: #88D8B0;
+            color: white;
+        }
+    }
+}
