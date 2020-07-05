@@ -11,7 +11,7 @@ export class ReaderPage implements OnInit {
     constructor(private menu: MenuController) { }
 
     ngOnInit() {
-        
+
     }
 
     openFirst() {

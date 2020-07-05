@@ -10,6 +10,8 @@ import { ExplorePageRoutingModule } from './explore-routing.module';
 import { BookService } from 'src/services/book.service';
 
 import { BookDetailsPage } from './book-details/book-details.page';
+import { SearchResultPage } from './search-result/search-result.page';
+
 @NgModule({
   imports: [
     IonicModule,
@@ -18,7 +20,8 @@ import { BookDetailsPage } from './book-details/book-details.page';
     ExploreContainerComponentModule,
     ExplorePageRoutingModule
   ],
-  declarations: [ExplorePage, BookDetailsPage],
-  providers: [ BookService ]
+  declarations: [ExplorePage, BookDetailsPage, SearchResultPage],
+  providers: [ BookService ],
+  entryComponents: [SearchResultPage]
 })
 export class ExplorePageModule {}
