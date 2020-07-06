@@ -33,7 +33,7 @@ export class ProfilePage implements OnInit {
         await this.getUser();
     }
 
-    getBooks() {
+    async getBooks() {
         this.books = this.bookService.getMyBooks();
     }
 
@@ -41,7 +41,7 @@ export class ProfilePage implements OnInit {
         this.router.navigate(['/app/explore/book-details/', book._id]);
     }
 
-    getUser() {
+    async getUser() {
         this.userService.getUser().subscribe(res => {
             this.currentUser = res;
             this.loadingService.dismiss();

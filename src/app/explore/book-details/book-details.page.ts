@@ -33,9 +33,10 @@ export class BookDetailsPage implements OnInit {
 
     ngOnInit() {
         const { bookId } = this.route.snapshot.params;
+
         this.loadingService.presentLoading();
         this.bookService.getBookDetail(bookId)
-            .subscribe((response: BookDetails) => {                
+            .subscribe((response: BookDetails) => {
                 this.book = response;
                 this.loadingService.dismiss();
             });

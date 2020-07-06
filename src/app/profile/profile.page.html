@@ -31,7 +31,6 @@
       </ion-row>
     </ion-grid>
 
-    .
     <ion-row class="divider">
       <ion-col text-left align-self-center>
         Favoritos
@@ -39,9 +38,9 @@
     </ion-row>
     <ion-slides [options]="sliderConfiguration">
       <ion-slide *ngFor="let userBooks of currentUser?.currentReadings" class="category_section">
-          <ion-card class="m_05em" *ngIf="userBooks.favorite" (click)="navigate(userBooks.book)" style="cursor: pointer;">
-            <img [src]="userBooks?.book?.cover" />
-          </ion-card>          
+        <ion-card class="m_05em" *ngIf="userBooks.favorite" (click)="navigate(userBooks.book)" style="cursor: pointer;">
+          <img [src]="userBooks?.book?.cover" />
+        </ion-card>
       </ion-slide>
     </ion-slides>
 </ion-content>
