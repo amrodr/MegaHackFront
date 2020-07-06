@@ -17,7 +17,7 @@
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-icon class="header-icon" (click)="closeBook()" name="close-outline"></ion-icon>
+        <ion-icon class="header-icon" (click)="closeBook(); endModal();" name="close-outline"></ion-icon>
       </ion-buttons>
       <ion-back-button></ion-back-button>
       <ion-buttons slot="end">
@@ -41,7 +41,7 @@
       <h1 text-center>{{ book?.chapter?.name || 'Este capítulo não existe!' }}</h1>
       <i text-center>{{ book?.author }}</i>
     </div> 
-    <ion-slides class="slider_row" [options]="mainSliderConfiguration">
+    <ion-slides class="slider_row" #slides (ionSlideDidChange)="slideChanged($event)" [options]="mainSliderConfiguration">
       <ion-slide *ngFor="let p of book?.chapter?.pages">
         <div class="slider_card">
           <ion-grid>

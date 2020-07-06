@@ -6,7 +6,7 @@ import { ReaderPage } from './reader.page';
 const routes: Routes = [{
     path: ':bookId/:chapterId',
     component: ReaderPage
-}];
+}] 
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],

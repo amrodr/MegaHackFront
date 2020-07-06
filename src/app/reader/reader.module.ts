@@ -8,6 +8,7 @@ import { ReaderPageRoutingModule } from './reader-routing.module';
 
 import { ReaderPage } from './reader.page';
 import { QuestionDialogPage } from './question-dialog/question-dialog.page';
+import { EndBookPage } from './end-book/end-book.page';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { QuestionDialogPage } from './question-dialog/question-dialog.page';
     IonicModule,
     ReaderPageRoutingModule
   ],
-  declarations: [ReaderPage, QuestionDialogPage],
-  entryComponents: [QuestionDialogPage]
+  declarations: [ReaderPage, QuestionDialogPage, EndBookPage],
+  entryComponents: [QuestionDialogPage, EndBookPage]
 })
 export class ReaderPageModule {}

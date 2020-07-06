@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuController, ModalController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MenuController, ModalController, IonSlides } from '@ionic/angular';
 import { QuestionDialogPage } from './question-dialog/question-dialog.page';
 import { BookService } from '../../services/book.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/services/user.service';
 import { LoadingService } from 'src/services/loading.service';
+import { EndBookPage } from './end-book/end-book.page';
 @Component({
     selector: 'app-reader',
     templateUrl: 'reader.page.html',
@@ -12,9 +13,11 @@ import { LoadingService } from 'src/services/loading.service';
     styleUrls: ['./reader.page.scss'],
 })
 export class ReaderPage implements OnInit {
+    @ViewChild('slides', {static: true}) slides: IonSlides;
 
     // tslint:disable-next-line: ban-types
     loading: Boolean = true;
+    setBookFinished = false;
     mainSliderConfiguration = {
         spaceBetween: 6,
         centeredSlides: true,
@@ -54,6 +57,27 @@ export class ReaderPage implements OnInit {
                 this.readingUsers = this.book.chapters[this.chapterId].readingUsers;
                 this.loading = false;
             });
+    }
+
+    async slideChanged(e: any) {
+        this.slides.getActiveIndex().then((index: number) => {
+            const cId = parseInt(this.chapterId) + 1;
+            if(this.book.chapter.pages.length == index + 1 && this.book.chapters.length == cId) {
+                this.setBookFinished = true;
+            }
+        });
+    }
+
+    async endModal() {
+        if(this.setBookFinished) {
+            const modal = await this.modalController.create({
+                component: EndBookPage,
+                cssClass: 'my-custom-class',
+                componentProps: {
+                }
+            });
+            return await modal.present();
+        }      
     }
 
     async question() {
