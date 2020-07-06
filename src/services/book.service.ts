@@ -53,6 +53,10 @@ export class BookService {
         }
     }
 
+    getBooksFinalized(bookId: string = '', feedback: string = '') {
+        return this.http.get(`${this.baseURL}/books/${bookId}/finalized/${feedback}`);
+    }
+
     getBookDetail(bookId?: string) {
         return this.http.get(`${this.baseURL}/books/${bookId}`);
     }

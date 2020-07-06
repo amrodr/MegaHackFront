@@ -61,23 +61,25 @@ export class ReaderPage implements OnInit {
 
     async slideChanged(e: any) {
         this.slides.getActiveIndex().then((index: number) => {
+            // tslint:disable-next-line: radix
             const cId = parseInt(this.chapterId) + 1;
-            if(this.book.chapter.pages.length == index + 1 && this.book.chapters.length == cId) {
+            if (this.book.chapter.pages.length === index + 1 && this.book.chapters.length === cId) {
                 this.setBookFinished = true;
             }
         });
     }
 
     async endModal() {
-        if(this.setBookFinished) {
+        if (this.setBookFinished) {
             const modal = await this.modalController.create({
                 component: EndBookPage,
                 cssClass: 'my-custom-class',
                 componentProps: {
+                    bookId: this.book._id
                 }
             });
             return await modal.present();
-        }      
+        }
     }
 
     async question() {
